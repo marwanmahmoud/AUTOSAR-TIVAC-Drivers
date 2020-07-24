@@ -118,14 +118,14 @@ void Pwm_Init(Pwm_Config PWM )
 #if (De_init==STD_ON)
 void Pwm_DeInit(Pwm_Config PWM)
 {
-	uint8_t PWM_module = config.Pwm_Channel/8; // which pwm module
-	uint8_t PWM_GEN = config.Pwm_Channel/2;
-	uint8_t PWM_OUTPUT_PIN = config.Pwm_Channel%2 ;
+	uint8_t PWM_module = PWM.channel/8; // which pwm module
+	uint8_t PWM_GEN = PWM.channel/2;
+	uint8_t PWM_OUTPUT_PIN = PWM.channel%2 ;
 	//Pwm_ConfigType* ConfigPtr;
-//	(*RCGC_PWM)=0;
+	//(*RCGC_PWM)=0;
 	//ConfigPtr->IdleState=PWM_SET_OUT_IDLE_SID ;
-	Memory(config.PWM_Module,(PWM_G0_CTL + 4*PWM_GEN))=0;
-	Memory(config.PWM_Module,PWM_ENABLE_R)=0x0;
+	Memory(PWM.PWM_Module,(PWM_G0_CTL + 4*PWM_GEN))=0;
+	Memory(PWM.PWM_Module,PWM_ENABLE_R)=0x0;
 }
 #endif
 void Pwm_SetDutyCycle( Pwm_Config PWM)

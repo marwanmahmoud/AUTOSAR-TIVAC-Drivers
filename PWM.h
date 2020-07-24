@@ -229,7 +229,7 @@ typedef struct
 /* ---------------------------------- FUNCTION DECLARATIONS ---------------------------------- */
 void Pwm_Init(Pwm_Config PWM );
 #if (De_init==STD_ON)
-void Pwm_DeInit(Pwm_Config PWM)
+void Pwm_DeInit(Pwm_Config PWM);
 #endif
 void Pwm_SetDutyCycle( Pwm_Config PWM);
 void Pwm_SetPeriodAndDuty( Pwm_Config PWM);
