@@ -8,83 +8,89 @@ void setPortPin(uint8_t Channel){
 		case PWM0_PB6 :
 			Port = PORTB ; 
 			Pin  = P6;
+			portNum = 1;
 			break;
 		case PWM0_PB7 :
 			Port = PORTB ; 
 			Pin  = P7;
+			portNum = 1;
 			break;
 		case PWM0_PB4 :
 			Port = PORTB ; 
 			Pin  = P4;
+			portNum = 1;
 			break;
 		case PWM0_PB5 :
 			Port = PORTB ; 
 			Pin  = P5;
+			portNum = 1;
 			break;
 		case PWM0_PE4 :
 			Port = PORTE; 
 			Pin  = P4;
+			portNum = 4;	
 			break;
 		case PWM0_PE5 :
 			Port = PORTE; 
 			Pin  = P5;
+			portNum = 4;
 			break; 
 		case PWM0_PC4 :
 			Port = PORTC; 
 			Pin  = P4;
+			portNum = 2;
 			break;
 		case PWM0_PC5 :
 			Port = PORTC; 
 			Pin  = P5;
+			portNum = 2;
 			break;
     // PWM MODULE 1
 		case PWM1_PD0 :
 			Port = PORTD; 
 			Pin  = P0;
+			portNum = 3;
 			break;
 		case PWM1_PD1 :
 			Port = PORTD; 
 			Pin  = P1;
+			portNum = 3;
 			break;
 		case PWM1_PA6 :
 			Port = PORTA; 
 			Pin  = P6;
+			portNum = 0;
 			break;
 		case PWM1_PA7 :
 			Port = PORTA; 
 			Pin  = P7;
+			portNum = 0;
 			break;
 		case PWM1_PF0 :
 			Port = PORTF; 
 			Pin  = P0;
+			portNum = 5;
 			break;
 		case PWM1_PF1 :
 			Port = PORTF; 
 			Pin  = P1;
+			portNum = 5;
 			break;
 		case PWM1_PF2 :
 			Port = PORTF; 
 			Pin  = P2;
+			portNum = 5;
 			break;
 		case PWM1_PF3 :
 			Port = PORTF; 
 			Pin  = P3;
+			portNum = 5;
 			break;
 	}
 }
 void Pwm_Init(Pwm_Config PWM )
 {
 	setPortPin(PWM.channel);
-	uint8_t portNum = (Port % PORTA_BASE ) / (0x1000);
-	switch(Port)
-	{
-		case PORTE :
-			portNum = 4;
-			break;
-		case PORTF :
-			portNum = 5;
-			break;
-	}
 	uint8_t PWM_module = PWM.channel / 8; // which pwm module
 	uint8_t PWM_GEN = PWM.channel / 2;
 	uint8_t PWM_OUTPUT_PIN = PWM.channel % 2 ;
