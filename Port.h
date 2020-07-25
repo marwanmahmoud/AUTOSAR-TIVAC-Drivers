@@ -85,7 +85,7 @@ typedef uint8_t Port_PinModeType;
 /* ---------------------------------- ENUMS ---------------------------------- */
 typedef enum {
 PORT_PIN_IN=0x00000000,
-PORT_PIN_OUT=0xFFFFFFF1,	
+PORT_PIN_OUT=0xFFFFFFFF,	
 }Port_PinDirectionType;
 
 typedef enum {
